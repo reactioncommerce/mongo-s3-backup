@@ -81,7 +81,7 @@ docker run --rm \
   reactioncommerce/mongo-s3-backup
 ```
 
-## List
+### List
 
 To list the backups on S3:
 
@@ -93,7 +93,7 @@ docker run --rm \
   reactioncommerce/mongo-s3-backup list
 ```
 
-## Restore Latest
+### Restore Latest
 
 To restore the latest backup on S3:
 ```sh
