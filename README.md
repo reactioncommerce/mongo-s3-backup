@@ -93,21 +93,7 @@ docker run --rm \
   reactioncommerce/mongo-s3-backup list
 ```
 
-### Restore Latest
-
-To restore the latest backup on S3:
-```sh
-docker run --rm \
-  -e AWS_ACCESS_KEY_ID=<key> \
-  -e AWS_SECRET_ACCESS_KEY=<secret> \
-  -e S3_BUCKET=<bucket> \
-  -e MONGO_HOST=$MONGO_HOST \
-  reactioncommerce/mongo-s3-backup restore latest
-```
-
-A sort is used to determine the latest backup. If a `FILE_PREFIX` is defined, this will filter the bucket list results by the `FILE_PREFIX` that was originally used. If you are using a custom `DATE_FORMAT`, you will need to set that variable as well to ensure the sort order will still list the correct date order.
-
-## Restore
+### Restore
 
 To restore a specific backup, provide the name of the backup within the S3 bucket:
 
@@ -133,3 +119,17 @@ docker run --rm \
 ```
 
 See [the `mongorestore` docs](https://docs.mongodb.com/manual/reference/program/mongorestore/) for all available flags.
+
+### Restore Latest
+
+To restore the latest backup on S3:
+```sh
+docker run --rm \
+  -e AWS_ACCESS_KEY_ID=<key> \
+  -e AWS_SECRET_ACCESS_KEY=<secret> \
+  -e S3_BUCKET=<bucket> \
+  -e MONGO_HOST=$MONGO_HOST \
+  reactioncommerce/mongo-s3-backup restore latest
+```
+
+A sort is used to determine the latest backup. If a `FILE_PREFIX` is defined, this will filter the bucket list results by the `FILE_PREFIX` that was originally used. If you are using a custom `DATE_FORMAT`, you will need to set that variable as well to ensure the sort order will still list the correct date order.
